@@ -52,6 +52,14 @@ export const askToAssistant = async (req, res) => {
     if (!user) {
       return res.status(400).json({ message: "user not found" });
     }
+    user.history.push(command);
+
+    // optional -> keep only latest 20 history items
+    if (user.history.length > 20) {
+      user.history = user.history.slice(-20);
+    }
+
+    await user.save();
     const assistantName = user.assistantName || "Assistant";
     const userName = user.name || "User";
     console.log("askToAssistant parameters:", command, assistantName, userName);
