@@ -430,9 +430,15 @@ const Home = () => {
           )}
         </div>
       </div>
+
       <button
         onClick={startAssistant}
-        className="bg-green-500 px-5 py-3 rounded-xl font-bold"
+        className="px-6 py-3 rounded-xl font-semibold 
+  bg-white text-black 
+  shadow-md 
+  hover:bg-gray-100 hover:shadow-lg 
+  active:scale-95 
+  transition-all duration-200"
       >
         Start Assistant
       </button>
